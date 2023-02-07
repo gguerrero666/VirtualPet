@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Scanner;
 
 @SpringBootApplication
 public class Main implements CommandLineRunner {
@@ -23,9 +24,33 @@ public class Main implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
+
         petController.createPet("1", "my first pet", 1);
-        petController.showStatus();
+        do {
+            switch (showMenu()) {
+                case 1:
+                    petController.showStatus();
+                    break;
+                case 2:
+                    petController.play();
+                    break;
+                case 3:
+                    petController.feed();
+                    break;
+                case 9:
+                    return;
+            }
+        } while (true);
+    }
 
+    public int showMenu() {
+        System.out.println("1. status");
+        System.out.println("2. play");
+        System.out.println("3. feed");
+        System.out.println("4. clean");
+        System.out.println("9. exit");
 
+        Scanner s = new Scanner(System.in);
+        return s.nextInt();
     }
 }

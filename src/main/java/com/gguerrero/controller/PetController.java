@@ -23,4 +23,12 @@ public class PetController {
         virtualPet.showStatus();
     }
 
+    public void play(){
+        virtualPet.play();
+    }
+
+    public void feed(){
+        virtualPet.feed();
+    }
+
 }
