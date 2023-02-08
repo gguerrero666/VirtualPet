@@ -25,10 +25,15 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
+        // TODO: IU to configure setup of pet:
         petController.createPet("1", "my first pet", 1);
+        LOG.info(petController.toString());
+
+        // Main Threads
         ThreadUser threadUser = new ThreadUser(petController);
         ThreadAlive threadAlive = new ThreadAlive(petController);
 
+        // Start Main Threads
         threadUser.start();
         threadAlive.start();
 

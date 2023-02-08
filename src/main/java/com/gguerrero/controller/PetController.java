@@ -31,8 +31,12 @@ public class PetController {
         virtualPet.play(points);
     }
 
-    public void feed(){
-        virtualPet.feed();
+    public void feed(int points){
+        virtualPet.feed(points);
+    }
+
+    public boolean isAlive(){
+        return virtualPet.isAlive();
     }
 
 }

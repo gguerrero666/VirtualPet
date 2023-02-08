@@ -24,16 +24,17 @@ public class ThreadUser extends Thread{
                         petController.play(Constants.pointsPlay);
                         break;
                     case 3:
-                        petController.feed();
+                        petController.feed(Constants.pointFeed);
                         break;
                     case 9:
                         return;
                 }
-            } while (true);
-        }catch (Exception e){
+            } while (petController.isAlive());
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
         }
+        System.out.println(Constants.deadMsj);
     }
 
     public int showMenu() {

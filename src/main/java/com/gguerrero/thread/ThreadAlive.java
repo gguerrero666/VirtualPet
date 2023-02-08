@@ -19,7 +19,7 @@ public class ThreadAlive extends Thread {
                 petController.alive(Constants.pointsThreadAlive);
 //              petController.showStatus();
             }
-            while (true);
+            while (petController.isAlive());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

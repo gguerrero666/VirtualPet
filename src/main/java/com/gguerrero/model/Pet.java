@@ -1,5 +1,6 @@
 package com.gguerrero.model;
 
+import com.gguerrero.constants.Constants;
 import com.gguerrero.model.ifaces.VirtualPet;
 import lombok.Data;
 
@@ -10,6 +11,7 @@ public class Pet implements VirtualPet {
     private String name;
     private int kind;
     private int health = 100;
+    private int happiness = 100;
 
     public Pet(String id, String name, int kind) {
         this.id = id;
@@ -23,12 +25,13 @@ public class Pet implements VirtualPet {
         System.out.println("    Name: " + name);
         System.out.println("    Kind: " + kind);
         System.out.println("    Health: " + health);
+        System.out.println("    Happiness: " + happiness);
         System.out.println();
     }
 
     @Override
-    public void feed() {
-        health = Math.min(health + 10, 100);
+    public void feed(int points) {
+        health = Math.min(health + points, Constants.maxPercent);
     }
 
     @Override
@@ -38,13 +41,19 @@ public class Pet implements VirtualPet {
 
     @Override
     public void play(int points) {
-        health = health - points;
+        happiness = Math.min(happiness + points, Constants.maxPercent);
+        health = Math.max(health - points, Constants.minPercent);
     }
 
     @Override
     public void alive(int points) {
-        health = health - points;
+        health = Math.max(health - points, Constants.minPercent);
+        happiness = Math.min(happiness - points, Constants.maxPercent);
     }
 
+    @Override
+    public boolean isAlive() {
+        return health > 0;
+    }
 
 }
