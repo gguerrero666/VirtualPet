@@ -5,5 +5,6 @@ public interface VirtualPet {
     void showStatus();
     void feed();
     void clean();
-    void play();
+    void play(int points);
+    void alive(int points);
 }

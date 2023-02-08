@@ -37,8 +37,14 @@ public class Pet implements VirtualPet {
     }
 
     @Override
-    public void play() {
-        health = health - 10;
+    public void play(int points) {
+        health = health - points;
     }
+
+    @Override
+    public void alive(int points) {
+        health = health - points;
+    }
+
 
 }

@@ -23,8 +23,12 @@ public class PetController {
         virtualPet.showStatus();
     }
 
-    public void play(){
-        virtualPet.play();
+    public void alive(int points){
+        virtualPet.alive(points);
+    }
+
+    public void play(int points){
+        virtualPet.play(points);
     }
 
     public void feed(){

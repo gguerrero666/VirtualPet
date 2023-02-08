@@ -1,0 +1,49 @@
+package com.gguerrero.thread;
+
+import com.gguerrero.constants.Constants;
+import com.gguerrero.controller.PetController;
+
+import java.util.Scanner;
+
+public class ThreadUser extends Thread{
+
+    PetController petController;
+
+    public ThreadUser(PetController petController){
+        this.petController = petController;
+    }
+    @Override
+    public void run() {
+        try {
+            do {
+                switch (showMenu()) {
+                    case 1:
+                        petController.showStatus();
+                        break;
+                    case 2:
+                        petController.play(Constants.pointsPlay);
+                        break;
+                    case 3:
+                        petController.feed();
+                        break;
+                    case 9:
+                        return;
+                }
+            } while (true);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public int showMenu() {
+        System.out.println("1. status");
+        System.out.println("2. play");
+        System.out.println("3. feed");
+        System.out.println("4. clean");
+        System.out.println("9. exit");
+
+        Scanner s = new Scanner(System.in);
+        return s.nextInt();
+    }
+}

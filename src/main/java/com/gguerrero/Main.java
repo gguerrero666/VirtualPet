@@ -1,14 +1,14 @@
 package com.gguerrero;
 
 import com.gguerrero.controller.PetController;
+import com.gguerrero.thread.ThreadAlive;
+import com.gguerrero.thread.ThreadUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Scanner;
 
 @SpringBootApplication
 public class Main implements CommandLineRunner {
@@ -26,31 +26,11 @@ public class Main implements CommandLineRunner {
     public void run(String... args) {
 
         petController.createPet("1", "my first pet", 1);
-        do {
-            switch (showMenu()) {
-                case 1:
-                    petController.showStatus();
-                    break;
-                case 2:
-                    petController.play();
-                    break;
-                case 3:
-                    petController.feed();
-                    break;
-                case 9:
-                    return;
-            }
-        } while (true);
-    }
+        ThreadUser threadUser = new ThreadUser(petController);
+        ThreadAlive threadAlive = new ThreadAlive(petController);
 
-    public int showMenu() {
-        System.out.println("1. status");
-        System.out.println("2. play");
-        System.out.println("3. feed");
-        System.out.println("4. clean");
-        System.out.println("9. exit");
+        threadUser.start();
+        threadAlive.start();
 
-        Scanner s = new Scanner(System.in);
-        return s.nextInt();
     }
 }
