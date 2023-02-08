@@ -39,4 +39,8 @@ public class PetController {
         return virtualPet.isAlive();
     }
 
+    public void clean(){
+        virtualPet.clean();
+    }
+
 }

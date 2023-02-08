@@ -26,6 +26,9 @@ public class ThreadUser extends Thread{
                     case 3:
                         petController.feed(Constants.pointFeed);
                         break;
+                    case 4:
+                        petController.clean();
+                        break;
                     case 9:
                         return;
                 }

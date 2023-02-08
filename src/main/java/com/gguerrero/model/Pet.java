@@ -12,6 +12,7 @@ public class Pet implements VirtualPet {
     private int kind;
     private int health = 100;
     private int happiness = 100;
+    private int poop = 0;
 
     public Pet(String id, String name, int kind) {
         this.id = id;
@@ -26,6 +27,8 @@ public class Pet implements VirtualPet {
         System.out.println("    Kind: " + kind);
         System.out.println("    Health: " + health);
         System.out.println("    Happiness: " + happiness);
+        System.out.println("    Poop: " + poop);
+
         System.out.println();
     }
 
@@ -36,7 +39,7 @@ public class Pet implements VirtualPet {
 
     @Override
     public void clean() {
-
+        poop = 0;
     }
 
     @Override
@@ -48,7 +51,8 @@ public class Pet implements VirtualPet {
     @Override
     public void alive(int points) {
         health = Math.max(health - points, Constants.minPercent);
-        happiness = Math.min(happiness - points, Constants.maxPercent);
+        happiness = Math.max(happiness - points, Constants.minPercent);
+        poop = Math.min(poop + points, Constants.maxPercent);
     }
 
     @Override
