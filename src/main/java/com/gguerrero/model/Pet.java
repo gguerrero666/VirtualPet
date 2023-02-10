@@ -2,6 +2,7 @@ package com.gguerrero.model;
 
 import com.gguerrero.constants.Constants;
 import com.gguerrero.model.ifaces.VirtualPet;
+import com.gguerrero.util.Util;
 import lombok.Data;
 
 @Data
@@ -13,6 +14,7 @@ public class Pet implements VirtualPet {
     private int health = 100;
     private int happiness = 100;
     private int poop = 0;
+    private int sick = 0;
 
     public Pet(String id, String name, int kind) {
         this.id = id;
@@ -28,6 +30,7 @@ public class Pet implements VirtualPet {
         System.out.println("    Health: " + health);
         System.out.println("    Happiness: " + happiness);
         System.out.println("    Poop: " + poop);
+        System.out.println("    Sick: " + sick);
 
         System.out.println();
     }
@@ -52,7 +55,8 @@ public class Pet implements VirtualPet {
     public void alive(int points) {
         health = Math.max(health - points, Constants.minPercent);
         happiness = Math.max(happiness - points, Constants.minPercent);
-        poop = Math.min(poop + points, Constants.maxPercent);
+        poop = Math.min(poop + Util.getIntProb(Constants.poopProb), Constants.maxPercent);
+        sick = Math.min(sick + Util.getIntProb(Constants.sickProb), Constants.maxPercent);
     }
 
     @Override

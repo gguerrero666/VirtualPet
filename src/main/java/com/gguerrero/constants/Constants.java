@@ -10,4 +10,10 @@ public class Constants {
     public static int minPercent = 0;
     public static String deadMsj = "Your pet is dead, I'm sorry.";
 
+
+
+    // probabilities
+    public static int sickProb = 10;
+    public static int poopProb = 20;
+
 }

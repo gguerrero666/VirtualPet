@@ -2,6 +2,7 @@ package com.gguerrero.thread;
 
 import com.gguerrero.constants.Constants;
 import com.gguerrero.controller.PetController;
+import com.gguerrero.util.Util;
 
 public class ThreadAlive extends Thread {
 
@@ -17,7 +18,7 @@ public class ThreadAlive extends Thread {
             do {
                 Thread.sleep(Constants.sleepMillisThreadAlive);
                 petController.alive(Constants.pointsThreadAlive);
-//              petController.showStatus();
+//                petController.showStatus();
             }
             while (petController.isAlive());
         } catch (Exception e) {
