@@ -1,5 +1,6 @@
 package com.gguerrero.controller;
 
+import com.gguerrero.model.Chucky;
 import com.gguerrero.model.Pet;
 import com.gguerrero.model.ifaces.VirtualPet;
 import com.gguerrero.service.ifaces.VirtualPetService;
@@ -16,7 +17,7 @@ public class PetController {
     }
 
     public void createPet(String id, String name, int kind){
-        virtualPet = new Pet(id, name, kind);
+        virtualPet = new Chucky(id, name, kind);
     }
 
     public void showStatus(){
@@ -41,6 +42,10 @@ public class PetController {
 
     public void clean(){
         virtualPet.clean();
+    }
+
+    public void scrub(){
+        ((Chucky) virtualPet).scrub();
     }
 
 }

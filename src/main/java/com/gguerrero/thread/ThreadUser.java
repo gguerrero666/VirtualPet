@@ -30,6 +30,9 @@ public class ThreadUser extends Thread{
                     case 4:
                         petController.clean();
                         break;
+                    case 5:
+                        petController.scrub();
+                        break;
                     case 9:
                         return;
                 }
@@ -49,6 +52,7 @@ public class ThreadUser extends Thread{
         System.out.println("2. play");
         System.out.println("3. feed");
         System.out.println("4. clean");
+        System.out.println("5. scrub");
         System.out.println("9. exit");
 
 

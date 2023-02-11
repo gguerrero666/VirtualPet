@@ -32,7 +32,7 @@ public class Pet implements VirtualPet {
         System.out.println("    Poop: " + poop);
         System.out.println("    Sick: " + sick);
 
-        System.out.println();
+        //System.out.println();
     }
 
     @Override

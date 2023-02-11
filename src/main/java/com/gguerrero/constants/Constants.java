@@ -15,5 +15,6 @@ public class Constants {
     // probabilities
     public static int sickProb = 10;
     public static int poopProb = 20;
+    public static int angryProb = 20;
 
 }
