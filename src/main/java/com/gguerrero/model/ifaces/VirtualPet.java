@@ -8,4 +8,5 @@ public interface VirtualPet {
     void play(int points);
     void alive(int points);
     boolean isAlive();
+    void care();
 }

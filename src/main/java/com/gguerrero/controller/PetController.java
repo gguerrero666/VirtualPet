@@ -43,4 +43,8 @@ public class PetController {
         virtualPet.clean();
     }
 
+    public void care(){
+        virtualPet.care();
+    }
+
 }

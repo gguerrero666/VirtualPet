@@ -45,6 +45,8 @@ public class Pet implements VirtualPet {
         poop = 0;
     }
 
+
+
     @Override
     public void play(int points) {
         happiness = Math.min(happiness + points, Constants.maxPercent);
@@ -62,6 +64,11 @@ public class Pet implements VirtualPet {
     @Override
     public boolean isAlive() {
         return health > 0;
+    }
+
+    @Override
+    public void care() {
+        sick = 0;
     }
 
 }
