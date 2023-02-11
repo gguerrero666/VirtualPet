@@ -3,6 +3,7 @@ package com.gguerrero.thread;
 import com.gguerrero.constants.Constants;
 import com.gguerrero.controller.PetController;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ThreadUser extends Thread{
@@ -41,13 +42,21 @@ public class ThreadUser extends Thread{
     }
 
     public int showMenu() {
+        Scanner s = new Scanner(System.in);
+        int selected = 0;
+
         System.out.println("1. status");
         System.out.println("2. play");
         System.out.println("3. feed");
         System.out.println("4. clean");
         System.out.println("9. exit");
 
-        Scanner s = new Scanner(System.in);
-        return s.nextInt();
+
+        try {
+            selected = s.nextInt();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return selected;
     }
 }
