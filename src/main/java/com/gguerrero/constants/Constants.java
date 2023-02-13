@@ -6,6 +6,7 @@ public class Constants {
     public static int pointsFeed = 10;
     public static int pointsClean = 10;
     public static int pointsThreadAlive = 1;
+    public static int pointsThreadAliveSick = 5;
     public static int sleepMillisThreadAlive = 10000; // 10 sec
     public static int maxPercent = 100;
     public static int minPercent = 0;

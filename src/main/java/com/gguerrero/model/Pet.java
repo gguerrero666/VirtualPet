@@ -3,9 +3,7 @@ package com.gguerrero.model;
 import com.gguerrero.constants.Constants;
 import com.gguerrero.model.ifaces.VirtualPet;
 import com.gguerrero.util.Util;
-import lombok.Data;
 
-@Data
 public class Pet implements VirtualPet {
 
     private String id;
@@ -92,6 +90,15 @@ public class Pet implements VirtualPet {
     @Override
     public void setSleep(boolean sleep) {
         this.sleep = sleep;
+    }
+
+    @Override
+    public boolean isSick() {
+        return sick;
+    }
+
+    public String getName(){
+        return name;
     }
 
 

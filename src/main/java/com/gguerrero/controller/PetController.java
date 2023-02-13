@@ -60,5 +60,8 @@ public class PetController {
     public void setSleep(boolean sleep){
         virtualPet.setSleep(sleep);
     }
+    public boolean isSick(){
+        return virtualPet.isSick();
+    }
 
 }
