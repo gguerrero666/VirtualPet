@@ -16,8 +16,9 @@ public class ThreadAlive extends Thread {
         try {
             do {
                 Thread.sleep(Constants.sleepMillisThreadAlive);
-                petController.alive(Constants.pointsThreadAlive);
-//                petController.showStatus();
+                if (!petController.isSleeping()) {
+                    petController.alive(Constants.pointsThreadAlive);
+                }
             }
             while (petController.isAlive());
         } catch (Exception e) {

@@ -2,8 +2,6 @@ package com.gguerrero.thread;
 
 import com.gguerrero.constants.Constants;
 import com.gguerrero.controller.PetController;
-
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ThreadUser extends Thread{
@@ -25,13 +23,22 @@ public class ThreadUser extends Thread{
                         petController.play(Constants.pointsPlay);
                         break;
                     case 3:
-                        petController.feed(Constants.pointFeed);
+                        petController.feed(Constants.pointsFeed);
                         break;
                     case 4:
-                        petController.clean();
+                        petController.clean(Constants.pointsClean);
                         break;
                     case 5:
                         petController.care();
+                        break;
+                    case 6:
+                        petController.makeAngry();
+                        break;
+                    case 7:
+                        petController.calm();
+                        break;
+                    case 8:
+                        petController.setSleep(!petController.isSleeping());
                         break;
                     case 9:
                         return;
@@ -53,6 +60,9 @@ public class ThreadUser extends Thread{
         System.out.println("3. feed");
         System.out.println("4. clean");
         System.out.println("5. care");
+        System.out.println("6. make angry");
+        System.out.println("7. calm");
+        System.out.println("8. sleep / awake");
         System.out.println("9. exit");
 
 

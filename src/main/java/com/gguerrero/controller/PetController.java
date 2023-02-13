@@ -39,12 +39,26 @@ public class PetController {
         return virtualPet.isAlive();
     }
 
-    public void clean(){
-        virtualPet.clean();
+    public void clean(int points){
+        virtualPet.clean(points);
     }
 
     public void care(){
         virtualPet.care();
+    }
+
+    public void makeAngry(){
+        virtualPet.makeAngry();
+    }
+    public void calm(){
+        virtualPet.calm();
+    }
+
+    public boolean isSleeping(){
+        return virtualPet.isSleeping();
+    }
+    public void setSleep(boolean sleep){
+        virtualPet.setSleep(sleep);
     }
 
 }
