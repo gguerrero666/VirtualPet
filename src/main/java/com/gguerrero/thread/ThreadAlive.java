@@ -2,7 +2,6 @@ package com.gguerrero.thread;
 
 import com.gguerrero.constants.Constants;
 import com.gguerrero.controller.PetController;
-import com.gguerrero.util.Util;
 
 public class ThreadAlive extends Thread {
 

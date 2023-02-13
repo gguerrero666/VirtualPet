@@ -45,8 +45,6 @@ public class Pet implements VirtualPet {
         poop = 0;
     }
 
-
-
     @Override
     public void play(int points) {
         happiness = Math.min(happiness + points, Constants.maxPercent);
