@@ -65,7 +65,6 @@ public class ThreadUser extends Thread{
         System.out.println("8. sleep / awake");
         System.out.println("9. exit");
 
-
         try {
             selected = s.nextInt();
         } catch (Exception e) {

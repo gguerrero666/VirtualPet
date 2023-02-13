@@ -14,7 +14,7 @@ public class Util {
 
     public static boolean getBooleanProb(int prob) {
         int n = getRandom(0, 100);
-        return n <= prob;
+        return n < prob;
     }
 
     public static int getIntProb(int prob) {
