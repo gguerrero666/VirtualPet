@@ -63,5 +63,8 @@ public class PetController {
     public boolean isSick(){
         return virtualPet.isSick();
     }
+    public void kill(){
+        virtualPet.kill();
+    }
 
 }

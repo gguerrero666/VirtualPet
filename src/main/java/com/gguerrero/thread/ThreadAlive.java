@@ -2,7 +2,9 @@ package com.gguerrero.thread;
 
 import com.gguerrero.constants.Constants;
 import com.gguerrero.controller.PetController;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class ThreadAlive extends Thread {
 
     PetController petController;
@@ -19,11 +21,13 @@ public class ThreadAlive extends Thread {
                 if (!petController.isSleeping()) {
                     petController.alive(petController.isSick() ? Constants.pointsThreadAliveSick : Constants.pointsThreadAlive);
                 }
+                if(!petController.isAlive()){
+                    this.interrupt();
+                }
             }
-            while (petController.isAlive());
+            while (!Thread.currentThread().isInterrupted());
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 }

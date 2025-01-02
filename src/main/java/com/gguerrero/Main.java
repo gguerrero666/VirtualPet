@@ -25,7 +25,7 @@ public class Main implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        // TODO: IU to configure setup of pet:
+        // TODO: IU to configure pet setup:
         petController.createPet("1", "my first pet", 1);
         LOG.info(petController.toString());
 
