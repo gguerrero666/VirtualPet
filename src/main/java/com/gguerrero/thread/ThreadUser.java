@@ -2,8 +2,11 @@ package com.gguerrero.thread;
 
 import com.gguerrero.constants.Constants;
 import com.gguerrero.controller.PetController;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Scanner;
 
+@Slf4j
 public class ThreadUser extends Thread{
 
     PetController petController;
@@ -41,14 +44,14 @@ public class ThreadUser extends Thread{
                         petController.setSleep(!petController.isSleeping());
                         break;
                     case 9:
-                        return;
+                        this.interrupt();
                 }
-            } while (petController.isAlive());
+            } while (!Thread.currentThread().isInterrupted());
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
-        System.out.println(Constants.deadMsj);
+        petController.kill();
+        log.info(Constants.deadMsj);
     }
 
     public int showMenu() {
@@ -65,11 +68,10 @@ public class ThreadUser extends Thread{
         System.out.println("8. sleep / awake");
         System.out.println("9. exit");
 
-        try {
-            selected = s.nextInt();
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (!s.hasNextInt()) {
+            System.out.println("Please enter an integer.");
+            s.next();
         }
-        return selected;
+        return s.nextInt();
     }
 }

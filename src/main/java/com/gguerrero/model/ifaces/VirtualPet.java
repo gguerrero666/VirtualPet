@@ -14,5 +14,6 @@ public interface VirtualPet {
     boolean isSleeping();
     void setSleep(boolean sleep);
     boolean isSick();
+    void kill();
 
 }

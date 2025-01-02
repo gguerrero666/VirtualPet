@@ -101,5 +101,9 @@ public class Pet implements VirtualPet {
         return name;
     }
 
+    @Override
+    public void kill() {
+        this.health = 0;
+    }
 
 }
